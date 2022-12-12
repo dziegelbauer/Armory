@@ -1,19 +1,33 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ArmoryWeb.Data;
+using ArmoryWeb.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ArmoryWeb.Pages;
 
+[BindProperties]
 public class IndexModel : PageModel
 {
-    private readonly ILogger<IndexModel> _logger;
+    private readonly IBattleNet _bnet;
+    public Character? Character { get; set; }
+    public string Name { get; set; }
+    public string Realm { get; set; }
+    public int Region { get; set; }
 
-    public IndexModel(ILogger<IndexModel> logger)
+    public IndexModel(IBattleNet bnet)
     {
-        _logger = logger;
+        _bnet = bnet;
     }
 
     public void OnGet()
     {
+        Character = null;
+    }
 
+    public IActionResult OnPost()
+    {
+        Character = _bnet.GetCharacter(Name, Realm, Region);
+        
+        return Page();
     }
 }

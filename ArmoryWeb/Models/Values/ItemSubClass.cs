@@ -1,6 +1,6 @@
 ﻿namespace ArmoryWeb.Models.Values;
 
-public class ItemSubClass
+public enum ItemSubClass
 {
-    
+    Plate = 4,
 }

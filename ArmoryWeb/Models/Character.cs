@@ -1,6 +1,8 @@
 ﻿namespace ArmoryWeb.Models;
 
-public class Character
+public record Character
 {
-    
+    public int Id;
+    public string Name;
+    public List<Item> Equipment;
 }

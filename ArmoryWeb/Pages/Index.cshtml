@@ -1,10 +1,39 @@
 ﻿@page
+@using ArmoryWeb.Models
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form method="post" enctype="multipart/form-data">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <div class="col-3">
+                <label asp-for="Name">Character:</label>
+                <input asp-for="Name" type="text" class="form-control"/>
+            </div>
+            <div class="col-3">
+                <label asp-for="Realm">Realm:</label>
+                <input asp-for="Realm" type="text" class="form-control"/>
+            </div>
+            <div class="col-3">
+                <label asp-for="Region">Region:</label>
+                <select asp-for="Region" class="form-select">
+                    <option selected value="1">US</option>
+                    <option value="2">EU</option>
+                    <option value="3">KR</option>
+                    <option value="4">CN</option>
+                </select>
+            </div>
+            <div class="col-3 pt-3">
+                <button type="submit" class="btn btn-primary mt-2">Search</button>
+            </div>
+        </div>
+    </div>
+    @if (Model.Character is not null)
+    {
+        <div class="border p-3 mt-4">
+
+        </div>
+    }
+</form>

@@ -1,4 +1,4 @@
-﻿namespace ArmoryWeb.Data.Records;
+﻿namespace ArmoryWeb.Models.Values;
 
 public enum ItemSlot
 {

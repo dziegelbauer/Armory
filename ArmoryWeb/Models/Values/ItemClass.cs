@@ -2,5 +2,5 @@
 
 public enum ItemClass
 {
-    
+    Armor = 4,
 }
